@@ -1,6 +1,6 @@
 <header class="mb-4">
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-    <a class="navbar-brand" href="/">Stop-smoking</a>
+    <a class="navbar-brand" href="/">Stop-Smoking</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -10,7 +10,7 @@
         <% if logged_in? %>
           <li class="nav-item"><%= link_to 'Users', users_path, class: 'nav-link' %></li>
           <li class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" date-toggle="dropdown"><%= current_user.name %></a>
+            <!--<a href="#" class="nav-link dropdown-toggle" date-toggle="dropdown"><%= current_user.name %></a>-->
             <ui class="dropdown-menu dropdown-menu-right">
               <li class="dropdown-item"><%= link_to 'My profile', user_path(current_user) %></li>
               <li class="dropdown-divider"></li>

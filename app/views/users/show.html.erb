@@ -1,5 +1,7 @@
+<div class="d-flex flex-row">
+  
 <div class="row">
-  <aside class="col-sm-4">
+  <aside class="col-md-9">
     <div class="card">
       <div class="card-header">
         <h3 class="card-title"><%= @user.name %></h3>
@@ -9,11 +11,37 @@
       </div>
     </div>
   </aside>
-  <div class="col-sm-8">
-    <ul class="nav nav-tabs nav-justified mb-3">
-      <li class="nav-item"><a href="#" class="nav-link">Microposts</a></li>
-      <li class="nav-item"><a href="#" class="nav-link">Followings</a></li>
-      <li class="nav-item"><a href="#" class="nav-link">Followers</a></li>
-    </ul>
-  </div>
+</div>
+    <div class="row">
+      <div class="col-md-10", style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333; border-radius: 10px;">
+  <% if current_user == @user %>
+    <!--<div style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333; border-radius: 10px;">-->
+      <ul>
+        <% if @info.present? then %>
+          <p class="stop-smoking-text">禁煙中！！！</p>
+          
+          <li><%= link_to"禁煙失敗","/users/#{@user.id}/stop_smoking_infos/#{@info.id}/smoking_fail",class: 'btn btn-danger stop-smoking-btn',method: :get %></li>
+        <% else %>
+          <p class="stop-smoking-text">これから禁煙します！</p>
+          <li><%= link_to"禁煙スタート","/users/#{@user.id}/stop_smoking_infos",class: 'btn btn-primary stop-smoking-btn',method: :post %></li>
+      </ul>
+        <% end %>
+    
+    <% else %>
+  <% end %>
+        
+      <!--</div>-->
+      
+    </div>
+    
+    <div class="col-md-10", style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333; border-radius: 10px;">
+      <div class="stop_smoking_infos">
+          <h5>１日あたり, 貯まるお金:450円 伸びた寿命:110分</h5>
+          <p>貯まったお金 <%= @user.money_caliculation %>円</p>
+          <p>伸びた寿命 <%= @user.extended_lifespan %>分</p>
+          <p>禁煙日数 <%= @user.not_smokng_days %>日</p>
+      </div>
+    </div>
+    
+    </div>
 </div>

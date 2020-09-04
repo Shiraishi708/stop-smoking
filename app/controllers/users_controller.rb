@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @info = @user.stop_smoking_info.find_by(fail_flag: false) 
   end
 
   def new
@@ -21,7 +22,7 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       flash.now[:danger] = 'ユーザーの登録に失敗しました。'
-      render :now
+      render :new
     end
   end
   
